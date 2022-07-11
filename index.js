@@ -1,5 +1,5 @@
 const path = require('path');
-
+const mongoose = require('mongoose')
 const express = require('express');
 const exphbs = require('express-handlebars');
 const homeRoutes = require('./routes/home');
@@ -30,8 +30,17 @@ app.use('/courses', coursesRoutes);
 app.use('/add', addRoutes);
 app.use('/card', cardRoutes);
 
-const url = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/?retryWrites=true&w=majority"
+async function start() {
+    try {
+        const url = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/?retryWrites=true&w=majority"
+        await mongoose.connect(url, { useNewUrlParser: true });
+        app.listen(PORT, () => {
+            console.log(`My server strated on port ${PORT}`);
+        })
+    } catch (e) {
+        console.log(e)
+    }
+}
 
-app.listen(PORT, () => {
-    console.log(`My server strated on port ${PORT}`);
-})
+start();
+
