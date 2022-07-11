@@ -30,6 +30,8 @@ app.use('/courses', coursesRoutes);
 app.use('/add', addRoutes);
 app.use('/card', cardRoutes);
 
+const url = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/?retryWrites=true&w=majority"
+
 app.listen(PORT, () => {
     console.log(`My server strated on port ${PORT}`);
 })
