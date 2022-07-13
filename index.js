@@ -1,11 +1,16 @@
 const path = require('path');
 const mongoose = require('mongoose')
 const express = require('express');
+
+const Handlebars = require('handlebars')
 const exphbs = require('express-handlebars');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
+
 const homeRoutes = require('./routes/home');
 const coursesRoutes = require('./routes/courses');
 const addRoutes = require('./routes/add');
 const cardRoutes = require('./routes/card');
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,7 +18,8 @@ const app = express();
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
 
@@ -32,7 +38,7 @@ app.use('/card', cardRoutes);
 
 async function start() {
     try {
-        const url = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/?retryWrites=true&w=majority"
+        const url = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/shop"
         await mongoose.connect(url, { useNewUrlParser: true });
         app.listen(PORT, () => {
             console.log(`My server strated on port ${PORT}`);
@@ -43,4 +49,3 @@ async function start() {
 }
 
 start();
-
