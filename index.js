@@ -9,7 +9,8 @@ const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-ac
 const homeRoutes = require('./routes/home');
 const coursesRoutes = require('./routes/courses');
 const addRoutes = require('./routes/add');
-const cardRoutes = require('./routes/card');
+const cartRoutes = require('./routes/cart');
+const ordersRoutes = require('./routes/orders');
 
 const User = require('./models/user')
 
@@ -47,7 +48,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', homeRoutes);
 app.use('/courses', coursesRoutes);
 app.use('/add', addRoutes);
-app.use('/card', cardRoutes);
+app.use('/cart', cartRoutes);
+app.use('/orders', ordersRoutes);
 
 async function start() {
     try {
