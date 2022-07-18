@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const user = await req.user.populate('cart.items.courseId');
-        console.log(user);
         const courses = user.cart.items.map(i => ({
             count: i.count,
             course: { ...i.courseId._doc }
