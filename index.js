@@ -1,5 +1,6 @@
 const path = require('path');
 const csrf = require('csurf');
+const flash = require('connect-flash');
 const mongoose = require('mongoose')
 const express = require('express');
 const Handlebars = require('handlebars')
@@ -55,6 +56,7 @@ app.use(session({
 }));
 
 app.use(csrf());
+app.use(flash());
 app.use(varMidleware);
 app.use(userMidleware);
 
