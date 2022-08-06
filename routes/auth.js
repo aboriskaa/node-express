@@ -2,6 +2,7 @@ const { Router } = require('express')
 const User = require('../models/user')
 const router = Router()
 const bcrypt = require('bcryptjs');
+
 const nodemailer = require('nodemailer');
 const sendgrid = require('nodemailer-sendgrid-transport');
 
@@ -76,6 +77,8 @@ router.post('/register', async (req, res) => {
             })
             await user.save();
             res.redirect('/auth/login#login');
+            // e-mail send:
+
             await transporter.sendMail(regEmail(email))
         }
     }
