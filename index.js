@@ -21,8 +21,6 @@ const varMidleware = require('./midleware/variables');
 const userMidleware = require('./midleware/user');
 const keys = require('./keys')
 
-const MONGODB_URI = "mongodb+srv://boris:uwz8lfXbx6NIhXtx@cluster0.byvu1.mongodb.net/shop"
-
 
 const PORT = process.env.PORT || 3000;
 
