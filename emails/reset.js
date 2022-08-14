@@ -8,13 +8,11 @@ module.exports = function (email, token) {
         html: `
         <h1>Have you forgotten your password?</h1>
         <p>
+        </hr>
         If didn't forget your password, please ignore this email!</p>
         <p>
         Otherwise, follow the link:</p>
-        <p><a href="${keys.BASE_URL}/auth/password/${token}"></a></p>
-        </hr>
-        
-        <a href="${keys.BASE_URL}">Our store</a>
+        <p><a href="${keys.BASE_URL}/auth/password/${token}">Password recovery</a></p>
         `
     }
 }
