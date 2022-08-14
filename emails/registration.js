@@ -1,8 +1,8 @@
 const keys = require('../keys')
 
-module.exports = function (to) {
+module.exports = function (email) {
     return {
-        to: to,
+        to: email,
         from: keys.EMAIL_FROM,
         subject: 'Registration was successful',
         html: `
