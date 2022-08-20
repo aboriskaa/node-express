@@ -16,9 +16,11 @@ const addRoutes = require('./routes/add');
 const cartRoutes = require('./routes/cart');
 const ordersRoutes = require('./routes/orders');
 const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profile');
 
 const varMidleware = require('./midleware/variables');
 const userMidleware = require('./midleware/user');
+const errorHandler = require('./midleware/error');
 const keys = require('./keys')
 
 
@@ -66,7 +68,8 @@ app.use('/add', addRoutes);
 app.use('/cart', cartRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/profile', profileRoutes);
+app.use(errorHandler);
 
 async function start() {
     try {
