@@ -24,7 +24,7 @@ const varMidleware = require('./midleware/variables');
 const userMidleware = require('./midleware/user');
 const errorHandler = require('./midleware/error');
 const fileMiddleware = require('./midleware/file');
-const keys = require('./keys/index')
+const keys = require('./keys/index');
 
 
 const PORT = process.env.PORT || 3000;
