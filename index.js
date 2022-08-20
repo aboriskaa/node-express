@@ -81,8 +81,8 @@ app.use(errorHandler);
 async function start() {
     try {
         await mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true });
-        app.listen(process.env.PORT || 3000, () => {
-            console.log(`My server started on port ${process.env.PORT || 3000}`);
+        app.listen(PORT, () => {
+            console.log(`My server started on port ${PORT}`);
         })
     } catch (e) {
         console.log(e)
